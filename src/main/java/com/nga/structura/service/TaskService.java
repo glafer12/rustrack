@@ -1,12 +1,13 @@
 package com.nga.structura.service;
 
-import com.nga.structura.model.Project;
 import com.nga.structura.model.Task;
 import com.nga.structura.repository.TaskRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class TaskService {
 
     private final TaskRepository taskRepository;

@@ -21,7 +21,7 @@ public class Project {
 
     private String description;
 
-    private String status;  // Например, "в процессе", "завершен"
+    private String status;
 
     @OneToMany(mappedBy = "project", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Task> tasks;

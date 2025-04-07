@@ -22,7 +22,7 @@ public class Task {
 
     private String priority;
 
-    private String status;  // Например, "Новая", "В процессе", "Завершена"
+    private String status;
 
     private LocalDate dueDate;
 
