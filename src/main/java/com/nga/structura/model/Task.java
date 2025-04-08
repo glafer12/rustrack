@@ -1,6 +1,9 @@
 package com.nga.structura.model;
 
 
+import com.nga.structura.model.dictionary.Priority;
+import com.nga.structura.model.dictionary.TaskStatus;
+import com.nga.structura.model.dictionary.TaskType;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -10,25 +13,37 @@ import java.time.LocalDate;
 @Table(name = "tasks")
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Task {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @ManyToOne
+    @JoinColumn(name = "task_type_id")
+    private TaskType taskType;
+
     private String name;
 
     private String description;
 
-    private String priority;
+    @ManyToOne
+    @JoinColumn(name = "priority_id")
+    private Priority priority;
 
-    private String status;
+    @ManyToOne
+    @JoinColumn(name = "task_status_id")
+    private TaskStatus taskStatus;
+
+    private LocalDate startDate;
 
     private LocalDate dueDate;
 
     @ManyToOne
     @JoinColumn(name = "project_id", nullable = false)
-    private Project project;
+    private Project project_id;
 
     @ManyToOne
     @JoinColumn(name = "user_id")

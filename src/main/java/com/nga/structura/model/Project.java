@@ -2,15 +2,20 @@ package com.nga.structura.model;
 
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity
 @Table(name = "projects")
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Project {
 
     @Id
@@ -23,13 +28,12 @@ public class Project {
 
     private String status;
 
-    @OneToMany(mappedBy = "project", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<Task> tasks;
+    private LocalDate startDate;
 
-    @ManyToMany
-    @JoinTable(
-            name = "project_users",
-            joinColumns = @JoinColumn(name = "project_id"),
-            inverseJoinColumns = @JoinColumn(name = "user_id"))
-    private List<User> users;
+    private LocalDate endDate;
+
+    @ManyToOne
+    @JoinColumn(name = "project_leader_id",referencedColumnName = "id")
+    private User projectLeader;
+
 }

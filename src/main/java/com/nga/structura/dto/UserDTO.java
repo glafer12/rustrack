@@ -1,20 +1,27 @@
 package com.nga.structura.dto;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonView;
+import com.nga.structura.views.Views;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class UserDTO {
+
+    @JsonView(Views.GetResponse.class)
     private Long id;
+
     private String username;
     private String email;
-
-    public UserDTO(Long id, String username, String email) {
-        this.id = id;
-        this.username = username;
-        this.email = email;
-    }
+    private String name;
+    private String secondName;
+    private String lastName;
 
 }
