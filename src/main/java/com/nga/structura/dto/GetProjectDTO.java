@@ -1,18 +1,22 @@
 package com.nga.structura.dto;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.nga.structura.model.User;
-import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.time.LocalDate;
 
-public class ProjectDTO {
+@Getter
+@Setter
+public class GetProjectDTO {
 
     private Long id;
+    private String key;
     private String name;
     private String description;
-
-    @JsonManagedReference
+    private Integer status;
+    private LocalDate startDate;
+    private LocalDate endDate;
     private User projectLeader;
 
 }

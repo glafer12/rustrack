@@ -22,14 +22,12 @@ public class UserController {
         this.userService = userService;
     }
 
-    @JsonView(Views.GetResponse.class)
     @GetMapping
     @Operation(summary = "Получить всех пользователей")
     public List<UserDTO> getAllUsers() {
         return userService.getAllUsers();
     }
 
-    @JsonView(Views.GetResponse.class)
     @GetMapping("/{id}")
     @Operation(summary = "Получить пользователя по id")
     public Optional<UserDTO> getUserById(@PathVariable Long id) {

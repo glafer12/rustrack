@@ -15,9 +15,7 @@ import lombok.Setter;
 @AllArgsConstructor
 public class UserDTO {
 
-    @JsonView(Views.GetResponse.class)
     private Long id;
-
     private String username;
     private String email;
     private String name;

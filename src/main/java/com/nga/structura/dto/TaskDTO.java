@@ -22,7 +22,6 @@ import java.time.LocalDate;
 @AllArgsConstructor
 public class TaskDTO {
 
-    @JsonView(Views.GetResponse.class)
     private Long id;
     private TaskType taskType;
     private String name;
