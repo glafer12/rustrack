@@ -32,6 +32,15 @@ public class UserService {
                 .collect(Collectors.toList());
     }
 
+    public List<UserDTO> getUsersByName(String query) {
+        if (query.length() < 3) {
+            return List.of(); // Пустой список, если менее 3 символов
+        }
+        return userRepository.findByLastNameContainingIgnoreCase(query).stream()
+                .map(this::convertToDTO)
+                .collect(Collectors.toList());
+    }
+
     public Optional<UserDTO> getUserById(Long id) {
         Optional<User> userOptional = userRepository.findById(id);
         return userOptional.map(this::convertToDTO);

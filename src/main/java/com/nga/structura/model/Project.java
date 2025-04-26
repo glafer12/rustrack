@@ -31,7 +31,7 @@ public class Project {
     private String name;
     private String description;
     @ManyToOne
-    @JoinColumn(name = "status", referencedColumnName = "id")
+    @JoinColumn(name = "status_id", referencedColumnName = "id")
     private TaskStatus status;
     private LocalDate startDate;
     private LocalDate endDate;

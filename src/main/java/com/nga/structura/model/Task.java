@@ -1,6 +1,8 @@
 package com.nga.structura.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.nga.structura.dto.task.GetTaskDTO;
 import com.nga.structura.model.dictionary.Priority;
 import com.nga.structura.model.dictionary.TaskStatus;
 import com.nga.structura.model.dictionary.TaskType;
@@ -15,6 +17,7 @@ import java.time.LocalDate;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Task {
 
     @Id
@@ -43,9 +46,10 @@ public class Task {
 
     @ManyToOne
     @JoinColumn(name = "project_id", nullable = false)
-    private Project project_id;
+    private Project project;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User assignedUser;
+
 }

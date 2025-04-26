@@ -1,6 +1,5 @@
-package com.nga.structura.dto;
+package com.nga.structura.dto.project;
 
-import com.nga.structura.model.User;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
@@ -10,9 +9,9 @@ import lombok.Setter;
 @Setter
 public class CreateProjectDTO {
 
-    @NotBlank(message = "Описание обязательно")
+    @NotBlank(message = "Наиманование обязательно")
     private String name;
-    @NotBlank(message = "Описание обязательно")
+    @NotBlank(message = "Ключ обязателен")
     private String key;
     @NotBlank(message = "Описание обязательно")
     private String description;

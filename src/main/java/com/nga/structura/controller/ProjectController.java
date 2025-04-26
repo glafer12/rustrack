@@ -1,12 +1,9 @@
 package com.nga.structura.controller;
 
 
-import com.fasterxml.jackson.annotation.JsonView;
-import com.nga.structura.dto.CreateProjectDTO;
-import com.nga.structura.dto.GetProjectDTO;
-import com.nga.structura.model.Project;
+import com.nga.structura.dto.project.CreateProjectDTO;
+import com.nga.structura.dto.project.GetProjectDTO;
 import com.nga.structura.service.ProjectService;
-import com.nga.structura.views.Views;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

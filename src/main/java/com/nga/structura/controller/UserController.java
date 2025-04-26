@@ -40,4 +40,9 @@ public class UserController {
         return userService.createUser(userDTO);
     }
 
+    @GetMapping("/search")
+    public List<UserDTO> searchUsers(@RequestParam("q") String query) {
+        return userService.getUsersByName(query);
+    }
+
 }

@@ -1,7 +1,7 @@
 package com.nga.structura.service;
 
-import com.nga.structura.dto.CreateProjectDTO;
-import com.nga.structura.dto.GetProjectDTO;
+import com.nga.structura.dto.project.CreateProjectDTO;
+import com.nga.structura.dto.project.GetProjectDTO;
 import com.nga.structura.model.Project;
 import com.nga.structura.model.User;
 import com.nga.structura.model.dictionary.TaskStatus;
@@ -11,7 +11,6 @@ import com.nga.structura.repository.dictionary.TaskStatusRepository;
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.ModelMap;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -49,8 +48,7 @@ public class ProjectService {
 
     public GetProjectDTO createProject(CreateProjectDTO createProjectDTO) {
         Project project = modelMapper.map(createProjectDTO, Project.class);
-        String statusId = "1";
-        TaskStatus status = taskStatusRepository.findById(statusId)
+        TaskStatus status = taskStatusRepository.findById("1")
                 .orElseThrow(() -> new RuntimeException("Task status not found"));
         project.setStatus(status);
         User leader = userRepository.findById(createProjectDTO.getProjectLeaderId())

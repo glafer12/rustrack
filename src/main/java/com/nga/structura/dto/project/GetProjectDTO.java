@@ -1,6 +1,7 @@
-package com.nga.structura.dto;
+package com.nga.structura.dto.project;
 
 import com.nga.structura.model.User;
+import com.nga.structura.model.dictionary.TaskStatus;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,9 +15,9 @@ public class GetProjectDTO {
     private String key;
     private String name;
     private String description;
-    private Integer status;
+    private Long statusId;
     private LocalDate startDate;
     private LocalDate endDate;
-    private User projectLeader;
+    private Long projectLeaderId;
 
 }
